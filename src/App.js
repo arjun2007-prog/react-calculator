@@ -1,24 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
+import { Buttons } from "./reactComponents/buttons";
 
 function App() {
+  let array = []
+  let num1 = ""
+  let sign;
+  let num2 = ""
+
+ function numberValue(num, makeNum) {
+   
+   array.push(num)
+   console.log(array);
+
+   if(makeNum == true){
+     array.forEach(eachNum => {
+       if (eachNum !== "+"){
+        if (sign){
+          num2 = num2.concat(eachNum)
+        }
+        else{
+          num1 = num1.concat(eachNum)
+        }
+        
+       }
+       else{
+         sign = eachNum
+       }
+       
+     });
+     console.log(parseInt(num1), parseInt(num2));
+    array = []
+   }
+ }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <Buttons value={numberValue}/>
   );
 }
 
