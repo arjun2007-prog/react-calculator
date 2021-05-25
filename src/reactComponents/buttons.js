@@ -16,7 +16,11 @@ export const Buttons = (props) => {
            <hr></hr>
 
            <button onClick={(e)=>{props.value(e.target.innerHTML, true);}}>+</button>
-           <button onClick={(e)=>{props.value(e.target.innerHTML, true); props.calculate()}}>=</button>
+           <button onClick={(e)=>{
+               props.value(e.target.innerHTML, true); 
+               props.calculate()
+               
+               }}>=</button>
 
         </div>
     )

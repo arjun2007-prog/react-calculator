@@ -7,43 +7,59 @@ import { React, useState } from "react";
 function App() {
   let numArray = []
   let array = []
-  let num1 = ""
-  let sign;
-  let num2 = ""
+  let sign = []
+  let number = "" 
   
   const [sum, setsum] = useState(0)
  
 function calculate() {
-  num1 = parseInt(num1)
-  num2 = parseInt(num2)
-  setsum(num1 + num2)
-  num1 = ""
-  num2 = ""
+  console.log(numArray);
+  numArray = []
+  for (let i = 0; i < numArray.length; i++) {
+    //calc sum
+    
+  }
 }
 
  function numberValue(num, makeNum) {
-   
-   array.push(num)
-   console.log(array);
+ console.log( typeof num);
+
+  if (num !== "=" || num !== "+"){
+    console.log(num);
+    array.push(num)
+    console.log(array);
+  }
+
+  else if(num == "+") {
+    sign.push(num)
+    console.log(sign);
+  }
 
    if(makeNum == true){
-     array.forEach(eachNum => {
-       if (eachNum !== "+"){
-        if (sign){
-          num2 = num2.concat(eachNum)
-        }
-        else{
-          num1 = num1.concat(eachNum)
-        }
+    //  array.forEach(eachNum => {
+    //    if (eachNum !== "+"){
+    //     if (sign){
+    //       num2 = num2.concat(eachNum)
+    //     }
+    //     else{
+    //       num1 = num1.concat(eachNum)
+    //     }
         
-       }
-       else{
-         sign = eachNum
-       }
+      //  }
+      //  else{
+      //    sign = eachNum
+      //  }
        
-     });
-     numArray.push(num1)
-     numArray.push(num2)
+    //  });
+    array.forEach((eachNum)=>{
+        number = number.concat(eachNum)
+        console.log(number);
+  })
+
+    number = parseInt(number)
+    numArray.push(number) 
+    number = ""
+
     array = []
    }
  }
