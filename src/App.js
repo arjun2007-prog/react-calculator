@@ -2,11 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 import { Buttons } from "./reactComponents/buttons";
 
+import { React, useState } from "react";
+
 function App() {
+  let numArray = []
   let array = []
   let num1 = ""
   let sign;
   let num2 = ""
+  
+  const [sum, setsum] = useState(0)
+ 
+function calculate() {
+  num1 = parseInt(num1)
+  num2 = parseInt(num2)
+  setsum(num1 + num2)
+  num1 = ""
+  num2 = ""
+}
 
  function numberValue(num, makeNum) {
    
@@ -29,13 +42,17 @@ function App() {
        }
        
      });
-     console.log(parseInt(num1), parseInt(num2));
+     numArray.push(num1)
+     numArray.push(num2)
     array = []
    }
  }
 
   return (
-   <Buttons value={numberValue}/>
+    <>
+    <h1>{sum}</h1>
+   <Buttons value={numberValue} calculate={calculate}/>
+   </>
   );
 }
 
