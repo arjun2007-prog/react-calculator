@@ -14,15 +14,19 @@ function App() {
  
 function calculate() {
   console.log(numArray);
-  numArray = []
+  //add the array elements
+  let numsum = 0
   for (let i = 0; i < numArray.length; i++) {
     //calc sum
+    numsum = numsum + numArray [i]
     
   }
+  setsum(numsum)
+  console.log(numsum);
 }
 
  function numberValue(num, makeNum) {
- console.log( typeof num);
+ console.log(typeof num);
 
   if (num !== "=" || num !== "+"){
     console.log(num);
