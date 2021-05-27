@@ -5,12 +5,12 @@ import { Buttons } from "./reactComponents/buttons";
 import { React, useState } from "react";
 
 function App() {
+  let newNum = "";
   let numArray = []
-  let array = []
   let sign = []
-  let number = "" 
+  let number = ""
   
-  const [sum, setsum] = useState(0)
+  const [sum, setsum] = useState(newNum)
  
 function calculate() {
   console.log(numArray);
@@ -25,13 +25,15 @@ function calculate() {
   console.log(numsum);
 }
 
- function numberValue(num, makeNum) {
+
+
+function numberValue(num, makeNum) {
  console.log(typeof num);
 
-  if (num !== "=" || num !== "+"){
-    console.log(num);
-    array.push(num)
-    console.log(array);
+  if(num !== "=" && num !== "+"){
+    console.log(number);
+    newNum = newNum.concat(num)
+    console.log(newNum);
   }
 
   else if(num == "+") {
@@ -39,34 +41,13 @@ function calculate() {
     console.log(sign);
   }
 
-   if(makeNum == true){
-    //  array.forEach(eachNum => {
-    //    if (eachNum !== "+"){
-    //     if (sign){
-    //       num2 = num2.concat(eachNum)
-    //     }
-    //     else{
-    //       num1 = num1.concat(eachNum)
-    //     }
-        
-      //  }
-      //  else{
-      //    sign = eachNum
-      //  }
-       
-    //  });
-    array.forEach((eachNum)=>{
-        number = number.concat(eachNum)
-        console.log(number);
-  })
-
-    number = parseInt(number)
-    numArray.push(number) 
-    number = ""
-
-    array = []
-   }
+  if(makeNum == true){
+    let newno = parseInt(newNum)
+    console.log(newno);
+    numArray.push(newno)
+    newNum = ""
  }
+}
 
   return (
     <>
@@ -75,5 +56,6 @@ function calculate() {
    </>
   );
 }
+
 
 export default App;
